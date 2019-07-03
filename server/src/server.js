@@ -1,15 +1,14 @@
 const io = require('socket.io')()
-
-io.on('connection', (client) => {
-    client.on('disconnect', () => {
-        console.log('Um usuário desconectou-se do grupo.')
+const {JOIN_CHAT, LEAVE_CHAT, SEND_MESSAGE} = require('./constants')
+io.on('connection', (socket) => {
+    socket.on(JOIN_CHAT, (username) => {
+        socket.broadcast.emit(JOIN_CHAT, username)
     })
-    client.on('subscribeToChat', (username) => {
-        console.log(`${username} - ${client.id} conectou-se ao grupo.`)
-        io.emit('subscribedToChat', {id: client.id, username})
+    socket.on(LEAVE_CHAT, (username) => {
+        socket.broadcast.emit(LEAVE_CHAT, username)
     })
-    client.on('sendMessage', (message) => {
-        io.emit('receivedMessage', message)
+    socket.on(SEND_MESSAGE, (message) => {
+        socket.broadcast.emit(SEND_MESSAGE, message)
     })
 })
 
