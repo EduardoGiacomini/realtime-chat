@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-//import {subscribedToChat, receivedMessage} from '../../server'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {setInitialUser} from '../../commons/store/actions'
+import {joinedChat, leaveChat, leavedChat, receiveMessage} from '../../commons/server'
 import ChatForm from './ChatForm'
 
 class Chat extends Component {
@@ -10,12 +13,37 @@ class Chat extends Component {
             messages: []
         }
 
-        /*subscribedToChat((err, user) => this.setState({
-            messages: [...this.state.messages, `${user.username} conectou-se ao grupo.`]
+        joinedChat((err, username) => this.setState({
+            messages: [...this.state.messages, `${username} conectou-se ao grupo.`]
         }))
-        receivedMessage((err, message) => this.setState({
+        leavedChat((err, username) => this.setState({
+            messages: [...this.state.messages, `${username} desconectou-se do grupo.`]
+        }))
+        receiveMessage((err, message) => this.setState({
             messages: [...this.state.messages, message]
-        }))*/
+        }))
+        this.checkInvalidUser = this.checkInvalidUser.bind(this)
+        this.redirectUser = this.redirectUser.bind(this)
+    }
+
+    componentDidMount() {
+        this.checkInvalidUser()
+    }
+
+    componentWillUnmount() {
+        leaveChat(this.props.user.username)
+        this.props.setInitialUser()
+    }
+
+    checkInvalidUser() {
+        const {user} = this.props
+        if (user.id === '' && user.username === '') {
+            this.redirectUser('/')
+        }
+    }
+
+    redirectUser(path) {
+        this.props.history.push(path)
     }
 
     render() {
@@ -34,5 +62,6 @@ class Chat extends Component {
         )
     }
 }
-
-export default Chat
+const mapStateToProps = state => ({user: state.user});
+const mapDispatchToProps = (dispatch) => bindActionCreators({setInitialUser}, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(Chat)

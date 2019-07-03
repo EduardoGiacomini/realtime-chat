@@ -16,10 +16,11 @@ class Subscriber extends Component {
         
         receiveClientId((err, id) => {
             this.props.setUser({id, username: this.state.username})
-            this.props.history.push('/chat')
+            this.redirectUser('/chat')
         })
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.redirectUser = this.redirectUser.bind(this)
     }
 
     handleChange(event) {
@@ -29,6 +30,10 @@ class Subscriber extends Component {
     handleSubmit(event) {
         event.preventDefault()
         joinChat(this.state.username)
+    }
+
+    redirectUser(path) {
+        this.props.history.push(path)
     }
 
     render() {
