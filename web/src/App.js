@@ -1,10 +1,12 @@
 import React from 'react'
-import Routes from './commons/routes'
+import Routes from './globals/routes'
+import {Provider} from 'react-redux'
+import store from './commons/store'
 
 export default function App() {
 	return (
-		<div>
+		<Provider store={store}>
 			<Routes />
-		</div>
+		</Provider>
 	)
 }

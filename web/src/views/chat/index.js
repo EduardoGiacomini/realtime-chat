@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {subscribedToChat, receivedMessage} from '../../server'
+//import {subscribedToChat, receivedMessage} from '../../server'
 import ChatForm from './ChatForm'
 
-class ChatList extends Component {
+class Chat extends Component {
     constructor(props) {
         super(props)
 
@@ -10,12 +10,12 @@ class ChatList extends Component {
             messages: []
         }
 
-        subscribedToChat((err, user) => this.setState({
+        /*subscribedToChat((err, user) => this.setState({
             messages: [...this.state.messages, `${user.username} conectou-se ao grupo.`]
         }))
         receivedMessage((err, message) => this.setState({
             messages: [...this.state.messages, message]
-        }))
+        }))*/
     }
 
     render() {
@@ -35,4 +35,4 @@ class ChatList extends Component {
     }
 }
 
-export default ChatList
+export default Chat

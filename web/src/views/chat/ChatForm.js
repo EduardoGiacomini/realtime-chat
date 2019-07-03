@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {sendMessage} from '../../server'
+//import {sendMessage} from '../../server'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 
@@ -22,7 +22,7 @@ class ChatForm extends Component {
     handleSubmit(event) {
         event.preventDefault()
 
-        sendMessage(this.state.message)
+        //sendMessage(this.state.message)
     }
 
     render() {

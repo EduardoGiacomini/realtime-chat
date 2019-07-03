@@ -1,0 +1,11 @@
+const constants = {
+    JOIN_CHAT: 'JOIN_CHAT',
+    RECEIVE_CLIENT_ID: 'RECEIVE_CLIENT_ID',
+    LEAVE_CHAT: 'LEAVE_CHAT',
+    SEND_MESSAGE: 'SEND_MESSAGE',
+
+    SET_USER: 'SET_USER',
+    SET_INITIAL_USER: 'SET_INITIAL_USER'
+}
+
+export default constants

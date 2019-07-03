@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import Subscriber from '../views/subscriber/SubscriberForm'
-import Chat from '../views/chat/ChatList'
+import Subscriber from '../../views/subscriber'
+import Chat from '../../views/chat'
 
 const Routes = () => (
     <BrowserRouter>

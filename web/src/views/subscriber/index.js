@@ -1,16 +1,23 @@
 import React, { Component } from 'react'
-import {subscribeToChat} from '../../server'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {setUser} from '../../commons/store/actions'
+import {joinChat, receiveClientId} from '../../commons/server'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 
-class SubscriberForm extends Component {
+class Subscriber extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             username: ''
         }
-
+        
+        receiveClientId((err, id) => {
+            this.props.setUser({id, username: this.state.username})
+            this.props.history.push('/chat')
+        })
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -21,9 +28,7 @@ class SubscriberForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-
-        subscribeToChat(this.state.username)
-        this.props.history.push('/chat')
+        joinChat(this.state.username)
     }
 
     render() {
@@ -33,7 +38,7 @@ class SubscriberForm extends Component {
                     id="username"
                     name="username"
                     value={this.state.username}
-                    placeholder="Insira seu nome de usuário"
+                    placeholder="Nome de usuário"
                     autoFocus={true}
                     required={true}
                     onChange={this.handleChange}
@@ -47,4 +52,5 @@ class SubscriberForm extends Component {
     }
 }
 
-export default SubscriberForm
+const mapDispatchToProps = (dispatch) => bindActionCreators({setUser}, dispatch)
+export default connect(null, mapDispatchToProps)(Subscriber)
