@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {setUser} from '../../commons/store/actions'
-import {joinChat, receiveClientId} from '../../commons/server'
+import {joinChat, receiveClient} from '../../commons/server'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 
@@ -11,11 +11,11 @@ class Subscriber extends Component {
         super(props)
 
         this.state = {
-            username: ''
+            name: ''
         }
         
-        receiveClientId((err, id) => {
-            this.props.setUser({id, username: this.state.username})
+        receiveClient((err, user) => {
+            this.props.setUser(user)
             this.redirectUser('/chat')
         })
         this.handleChange = this.handleChange.bind(this)
@@ -24,12 +24,12 @@ class Subscriber extends Component {
     }
 
     handleChange(event) {
-        this.setState({username: event.target.value})
+        this.setState({name: event.target.value})
     }
 
     handleSubmit(event) {
         event.preventDefault()
-        joinChat(this.state.username)
+        joinChat(this.state.name)
     }
 
     redirectUser(path) {
@@ -40,9 +40,9 @@ class Subscriber extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <Input
-                    id="username"
-                    name="username"
-                    value={this.state.username}
+                    id="name"
+                    name="name"
+                    value={this.state.name}
                     placeholder="Nome de usuário"
                     autoFocus={true}
                     required={true}

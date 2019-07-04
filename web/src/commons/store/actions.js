@@ -12,7 +12,7 @@ export function setUser(user) {
 export function setInitialUser() {
     const action = {
         type: SET_INITIAL_USER,
-        payload: {id: '', username: ''}
+        payload: {id: '', name: ''}
     }
     return action
 }

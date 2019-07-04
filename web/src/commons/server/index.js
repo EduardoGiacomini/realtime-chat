@@ -1,6 +1,6 @@
 import openSocket from 'socket.io-client'
 import constants from '../constants'
-const {JOIN_CHAT, RECEIVE_CLIENT_ID, LEAVE_CHAT, SEND_MESSAGE} = constants
+const {JOIN_CHAT, SEND_USER_CONFIRMATION, LEAVE_CHAT, SEND_MESSAGE} = constants
 
 // TODO
 const socket = openSocket('http://localhost:8080')
@@ -10,11 +10,11 @@ function joinChat(username) {
 }
 
 function joinedChat(callback) {
-    socket.on(JOIN_CHAT, username => callback(null, username))
+    socket.on(JOIN_CHAT, message => callback(null, message))
 }
 
-function receiveClientId(callback) {
-    socket.on(RECEIVE_CLIENT_ID, id => callback(null, id))
+function receiveClient(callback) {
+    socket.on(SEND_USER_CONFIRMATION, user => callback(null, user))
 }
 
 function leaveChat(username) {
@@ -33,4 +33,4 @@ function receiveMessage(callback) {
     socket.on(SEND_MESSAGE, message => callback(null, message))
 }
 
-export {joinChat, joinedChat, receiveClientId, leaveChat, leavedChat, sendMessage, receiveMessage}
+export {joinChat, joinedChat, receiveClient, leaveChat, leavedChat, sendMessage, receiveMessage}

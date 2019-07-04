@@ -4,7 +4,7 @@ const {SET_USER, SET_INITIAL_USER} = constants
 const INITIAL_STATE = {
     user: {
         id: '',
-        username: ''
+        name: ''
     },
     messages: []
 }

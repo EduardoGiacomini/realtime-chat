@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import {sendMessage} from '../../commons/server'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
@@ -8,7 +9,7 @@ class ChatForm extends Component {
         super(props)
 
         this.state = {
-            message: ''
+            value: ''
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -16,22 +17,21 @@ class ChatForm extends Component {
     }
 
     handleChange(event) {
-        this.setState({message: event.target.value})
+        this.setState({value: event.target.value})
     }
 
     handleSubmit(event) {
         event.preventDefault()
-
-        sendMessage(this.state.message)
+        sendMessage({user: this.props.user, value: this.state.value})
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
                 <Input
-                    id="message"
-                    name="message"
-                    value={this.state.message}
+                    id="value"
+                    name="value"
+                    value={this.state.value}
                     placeholder=""
                     autoFocus={true}
                     required={true}
@@ -46,4 +46,5 @@ class ChatForm extends Component {
     }
 }
 
-export default ChatForm
+const mapStateToProps = state => ({user: state.user})
+export default connect(mapStateToProps, null)(ChatForm)

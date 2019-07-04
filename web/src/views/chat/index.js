@@ -13,11 +13,11 @@ class Chat extends Component {
             messages: []
         }
 
-        joinedChat((err, username) => this.setState({
-            messages: [...this.state.messages, `${username} conectou-se ao grupo.`]
+        joinedChat((err, message) => this.setState({
+            messages: [...this.state.messages, message]
         }))
-        leavedChat((err, username) => this.setState({
-            messages: [...this.state.messages, `${username} desconectou-se do grupo.`]
+        leavedChat((err, message) => this.setState({
+            messages: [...this.state.messages, message]
         }))
         receiveMessage((err, message) => this.setState({
             messages: [...this.state.messages, message]
@@ -31,13 +31,12 @@ class Chat extends Component {
     }
 
     componentWillUnmount() {
-        leaveChat(this.props.user.username)
+        leaveChat(this.props.user.name)
         this.props.setInitialUser()
     }
 
     checkInvalidUser() {
-        const {user} = this.props
-        if (user.id === '' && user.username === '') {
+        if (this.props.user.id === '' && this.props.user.name === '') {
             this.redirectUser('/')
         }
     }
@@ -54,7 +53,7 @@ class Chat extends Component {
                 {
                     this.state.messages.map((message, index) => {
                         return (
-                            <p key={index}>{message}</p>
+                            <p key={index}>{message.value}</p>
                         )
                     })
                 }
@@ -62,6 +61,7 @@ class Chat extends Component {
         )
     }
 }
-const mapStateToProps = state => ({user: state.user});
+
+const mapStateToProps = state => ({user: state.user})
 const mapDispatchToProps = (dispatch) => bindActionCreators({setInitialUser}, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Chat)
