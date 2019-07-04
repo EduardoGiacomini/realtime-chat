@@ -17,8 +17,8 @@ function receiveClient(callback) {
     socket.on(SEND_USER_CONFIRMATION, user => callback(null, user))
 }
 
-function leaveChat(username) {
-    socket.emit(LEAVE_CHAT, username)
+function leaveChat(user) {
+    socket.emit(LEAVE_CHAT, user)
 }
 
 function leavedChat(callback) {

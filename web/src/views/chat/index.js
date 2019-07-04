@@ -31,12 +31,12 @@ class Chat extends Component {
     }
 
     componentWillUnmount() {
-        leaveChat(this.props.user.name)
+        leaveChat(this.props.user)
         this.props.setInitialUser()
     }
 
     checkInvalidUser() {
-        if (this.props.user.id === '' && this.props.user.name === '') {
+        if (this.props.user.id === '' || this.props.user.name === '') {
             this.redirectUser('/')
         }
     }

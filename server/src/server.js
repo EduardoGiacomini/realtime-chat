@@ -12,10 +12,9 @@ io.on('connection', (socket) => {
         const message = {user: user, value: joinChatMessage}
         io.emit(JOIN_CHAT, message)
     })
-    socket.on(LEAVE_CHAT, (username) => {
-        const user = {id: socket.id, name: username}
+    socket.on(LEAVE_CHAT, (user) => {
         const phrasePosition = generateRandomPosition(leaveChat.length)
-        const leaveChatMessage = `${username} ${leaveChat[phrasePosition]}`
+        const leaveChatMessage = `${user.name} ${leaveChat[phrasePosition]}`
         const message = {user: user, value: leaveChatMessage}
         io.emit(LEAVE_CHAT, message)
     })
