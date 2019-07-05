@@ -8,14 +8,14 @@ io.on('connection', (socket) => {
         socket.emit(SEND_USER_CONFIRMATION, user)
 
         const phrasePosition = generateRandomPosition(joinChat.length)
-        const joinChatMessage = `${username} ${joinChat[phrasePosition]}`
-        const message = {user: user, value: joinChatMessage}
+        const joinChatMessage = `${user.name} ${joinChat[phrasePosition]}`
+        const message = {user: user, value: joinChatMessage, isSpecial: true}
         io.emit(JOIN_CHAT, message)
     })
     socket.on(LEAVE_CHAT, (user) => {
         const phrasePosition = generateRandomPosition(leaveChat.length)
         const leaveChatMessage = `${user.name} ${leaveChat[phrasePosition]}`
-        const message = {user: user, value: leaveChatMessage}
+        const message = {user: user, value: leaveChatMessage, isSpecial: true}
         io.emit(LEAVE_CHAT, message)
     })
     socket.on(SEND_MESSAGE, (message) => {

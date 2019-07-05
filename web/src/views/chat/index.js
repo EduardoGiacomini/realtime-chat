@@ -46,15 +46,20 @@ class Chat extends Component {
     }
 
     render() {
-        console.log(this.state.messages)
         return (
             <div>
                 <ChatForm />
                 {
                     this.state.messages.map((message, index) => {
-                        return (
-                            <p key={index}>{message.value}</p>
-                        )
+                        if (message.isSpecial) {
+                            return (
+                                <p key={index}>{message.value}</p>
+                            )
+                        } else {
+                            return (
+                                <p key={index}><strong>{message.user.name}:</strong> {message.value}</p>
+                            )
+                        }
                     })
                 }
             </div>

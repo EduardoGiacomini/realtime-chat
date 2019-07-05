@@ -22,7 +22,7 @@ class ChatForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        sendMessage({user: this.props.user, value: this.state.value})
+        sendMessage({user: this.props.user, value: this.state.value, isSpecial: false})
     }
 
     render() {
