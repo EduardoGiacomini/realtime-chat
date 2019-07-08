@@ -1,6 +1,6 @@
 const io = require('socket.io')()
-const {JOIN_CHAT, SEND_USER_CONFIRMATION, LEAVE_CHAT, SEND_MESSAGE} = require('./constants')
-const {joinChat, leaveChat} = require('./phrases')
+const {JOIN_CHAT, SEND_USER_CONFIRMATION, LEAVE_CHAT, SEND_MESSAGE} = require('./commons/constants')
+const {joinChat, leaveChat} = require('./commons/phrases')
 
 io.on('connection', (socket) => {
     socket.on(JOIN_CHAT, (username) => {
