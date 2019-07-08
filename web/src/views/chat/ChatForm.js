@@ -14,6 +14,7 @@ class ChatForm extends Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.clearForm = this.clearForm.bind(this)
     }
 
     handleChange(event) {
@@ -23,6 +24,11 @@ class ChatForm extends Component {
     handleSubmit(event) {
         event.preventDefault()
         sendMessage({user: this.props.user, value: this.state.value, isSpecial: false})
+        this.clearForm()
+    }
+
+    clearForm() {
+        this.setState({value: ''})
     }
 
     render() {

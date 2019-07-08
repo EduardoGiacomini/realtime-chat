@@ -21,6 +21,7 @@ class Subscriber extends Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.redirectUser = this.redirectUser.bind(this)
+        this.clearForm = this.clearForm.bind(this)
     }
 
     handleChange(event) {
@@ -34,6 +35,10 @@ class Subscriber extends Component {
 
     redirectUser(path) {
         this.props.history.push(path)
+    }
+
+    clearForm() {
+        this.setState({name: ''})
     }
 
     render() {
