@@ -43,7 +43,8 @@ class Subscriber extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form className="subscriber" onSubmit={this.handleSubmit}>
+                <h3>Por favor, informe o seu nome para ingressar no bate-papo:</h3>
                 <Input
                     id="name"
                     name="name"
