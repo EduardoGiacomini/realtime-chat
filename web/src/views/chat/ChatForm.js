@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {sendMessage} from '../../commons/server'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
+import send from '../../commons/assets/send.png'
 
 class ChatForm extends Component {
     constructor(props) {
@@ -33,19 +34,20 @@ class ChatForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form className="chat-form" onSubmit={this.handleSubmit}>
                 <Input
                     id="value"
                     name="value"
                     value={this.state.value}
-                    placeholder=""
+                    placeholder="Digite algo..."
                     autoFocus={true}
                     required={true}
                     onChange={this.handleChange}
                 />
                 <Button
                     type="submit"
-                    value="Enviar"
+                    icon={send}
+                    alt="Enviar"
                 />
             </form>
         )

@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {setInitialUser} from '../../commons/store/actions'
 import {joinedChat, leaveChat, leavedChat, receiveMessage} from '../../commons/server'
+import ChatList from './ChatList'
 import ChatForm from './ChatForm'
 
 class Chat extends Component {
@@ -49,19 +50,7 @@ class Chat extends Component {
         return (
             <div>
                 <ChatForm />
-                {
-                    this.state.messages.map((message, index) => {
-                        if (message.isSpecial) {
-                            return (
-                                <p key={index}>{message.value}</p>
-                            )
-                        } else {
-                            return (
-                                <p key={index}><strong>{message.user.name}:</strong> {message.value}</p>
-                            )
-                        }
-                    })
-                }
+                <ChatList messages={this.state.messages} user={this.props.user} />
             </div>
         )
     }

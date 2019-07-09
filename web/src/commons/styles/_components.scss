@@ -1,16 +1,14 @@
 // Button
-.btn-icon {
+.btn {
     &,
     &:link,
     &:visited {
         display: inline-block;
         position: relative;
-        padding: 1rem 2rem;
+        padding: 1rem 1rem;
         border-radius: 50px;
         border: none;
-        box-shadow: 0 .3rem .7rem rgba(0, 0, 0, .2);
-        background-color: var(--color-primary);
-        color: var(--color-white);
+        background-color: transparent;
         text-decoration: none;
         text-transform: uppercase;
         font-weight: 700;
@@ -19,39 +17,36 @@
         transition: all .15s;
     }
 
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 .5rem .7rem rgba(0, 0, 0, .2);
-    }
-
     &:active,
     &:focus {
         outline: none;
-        transform: translateY(1px);
-        box-shadow: 0 .3rem .7rem rgba(0, 0, 0, .2);
+        opacity: 1;
+    }
+
+    &--icon {
+        height: 2.5rem;
+        width: 2.5rem;
+        opacity: .7;
     }
 }
 
 // Input
 .input {
+    display: block;
+    width: 100%;
+    padding: 2rem 2rem;
     font-family: inherit;
     color: inherit;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.5rem;
-    padding: 1rem 2rem;
-    border-radius: 50px;
     border: none;
-    width: 100%;
-    display: block;
-    box-shadow: 0 .3rem .7rem rgba(0, 0, 0, .2);
     transition: all .2s;
 
     &:focus {
         outline: none;
-        box-shadow: 0 .5rem .7rem rgba(0, 0, 0, .2);
     }
 
     &::-webkit-input-placeholder {
-        color: var(--color-grey-dark);
+        color: var(--color-grey);
     }
 }
