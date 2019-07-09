@@ -19,10 +19,14 @@
 
 .chat-list {
     padding: 1rem;
+
+    &--item {
+        margin-bottom: .8rem;
+    }
     
     &--item-special {
         list-style-type: none;
-        padding: 1rem 0;
+        padding: .5rem 0;
         text-align: center;
         font-size: 1.2rem;
         font-weight: 700;
@@ -33,6 +37,8 @@
         list-style-type: none;
         max-width: 70%;
         padding: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
         background-color: var(--color-white);
         border-radius: 0 5px 5px 5px;
     }
@@ -42,6 +48,8 @@
         max-width: 70%;
         margin-left: 30%;
         padding: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
         background-color: var(--color-primary);
         color: var(--color-white);
         border-radius: 5px 0 5px 5px;

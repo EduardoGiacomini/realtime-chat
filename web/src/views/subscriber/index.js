@@ -43,20 +43,20 @@ class Subscriber extends Component {
 
     render() {
         return (
-            <form className="subscriber" onSubmit={this.handleSubmit}>
+            <form className='subscriber' onSubmit={this.handleSubmit}>
                 <h3>Por favor, informe o seu nome para ingressar no bate-papo:</h3>
                 <Input
-                    id="name"
-                    name="name"
+                    id='name'
+                    name='name'
                     value={this.state.name}
-                    placeholder="Nome de usuário"
+                    placeholder='Nome de usuário'
                     autoFocus={true}
                     required={true}
                     onChange={this.handleChange}
                 />
                 <Button
-                    type="submit"
-                    value="Iniciar"
+                    type='submit'
+                    value='Iniciar'
                 />
             </form>
         )

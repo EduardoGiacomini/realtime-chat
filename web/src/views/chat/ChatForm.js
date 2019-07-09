@@ -34,20 +34,20 @@ class ChatForm extends Component {
 
     render() {
         return (
-            <form className="chat-form" onSubmit={this.handleSubmit}>
+            <form className='chat-form' onSubmit={this.handleSubmit}>
                 <Input
-                    id="value"
-                    name="value"
+                    id='value'
+                    name='value'
                     value={this.state.value}
-                    placeholder="Digite algo..."
+                    placeholder='Digite algo...'
                     autoFocus={true}
                     required={true}
                     onChange={this.handleChange}
                 />
                 <Button
-                    type="submit"
+                    type='submit'
                     icon={send}
-                    alt="Enviar"
+                    alt='Enviar'
                 />
             </form>
         )
