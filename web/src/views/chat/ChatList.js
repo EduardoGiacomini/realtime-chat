@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 
 function ChatList(props) {
     const {messages, user} = props
-    console.log(user, messages)
     return (
         <ul className='chat-list'>
             {

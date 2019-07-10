@@ -1,5 +1,5 @@
 const io = require('socket.io')()
-const {JOIN_CHAT, SEND_USER_CONFIRMATION, LEAVE_CHAT, SEND_MESSAGE} = require('./commons/constants')
+const {JOIN_CHAT, SEND_USER_CONFIRMATION, DISCONNECT, LEAVE_CHAT, SEND_MESSAGE} = require('./commons/constants')
 const {joinChat, leaveChat} = require('./commons/phrases')
 
 io.on('connection', (socket) => {
@@ -12,10 +12,10 @@ io.on('connection', (socket) => {
         const message = {user: user, value: joinChatMessage, isSpecial: true}
         io.emit(JOIN_CHAT, message)
     })
-    socket.on(LEAVE_CHAT, (user) => {
+    socket.on(DISCONNECT, () => {
         const phrasePosition = generateRandomPosition(leaveChat.length)
-        const leaveChatMessage = `${user.name} ${leaveChat[phrasePosition]}`
-        const message = {user: user, value: leaveChatMessage, isSpecial: true}
+        const leaveChatMessage = `Um usuário ${leaveChat[phrasePosition]}`
+        const message = {user: {id: '', name: ''}, value: leaveChatMessage, isSpecial: true}
         io.emit(LEAVE_CHAT, message)
     })
     socket.on(SEND_MESSAGE, (message) => {

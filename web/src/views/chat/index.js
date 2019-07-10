@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {setInitialUser} from '../../commons/store/actions'
-import {joinedChat, leaveChat, leavedChat, receiveMessage} from '../../commons/server'
+import {joinedChat, leavedChat, receiveMessage} from '../../commons/server'
 import ChatList from './ChatList'
 import ChatForm from './ChatForm'
 
@@ -32,7 +32,6 @@ class Chat extends Component {
     }
 
     componentWillUnmount() {
-        leaveChat(this.props.user)
         this.props.setInitialUser()
     }
 

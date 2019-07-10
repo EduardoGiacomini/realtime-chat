@@ -17,12 +17,8 @@ function receiveClient(callback) {
     socket.on(SEND_USER_CONFIRMATION, user => callback(null, user))
 }
 
-function leaveChat(user) {
-    socket.emit(LEAVE_CHAT, user)
-}
-
 function leavedChat(callback) {
-    socket.on(LEAVE_CHAT, username => callback(null, username))
+    socket.on(LEAVE_CHAT, message => callback(null, message))
 }
 
 function sendMessage(message) {
@@ -33,4 +29,4 @@ function receiveMessage(callback) {
     socket.on(SEND_MESSAGE, message => callback(null, message))
 }
 
-export {joinChat, joinedChat, receiveClient, leaveChat, leavedChat, sendMessage, receiveMessage}
+export {joinChat, joinedChat, receiveClient, leavedChat, sendMessage, receiveMessage}
