@@ -1,15 +1,34 @@
 .subscriber {
     @include centerContent;
 
+    width: 100%;
+    max-width: 60rem;
     padding: 2rem;
-    background-color: var(--color-grey-light);
+
+    display: flex;
+    flex-direction: column;
+
+    &--img {
+        height: 18rem;
+        margin: 3rem 0;
+    }
+
+    &--form {
+        display: flex;
+        align-items: center;
+        border-radius: 50px;
+        background-color: var(--color-white);
+        box-shadow: 0 -.3rem 1.2rem rgba(0, 0, 0, .15);
+    }
 }
 
 .chat-form {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    margin: 2rem;
+    width: calc(100% - 4rem); // 2rem right + 2rem left = 4rem of margin
+    border-radius: 50px;
     background-color: var(--color-white);
     box-shadow: 0 -.3rem 1.2rem rgba(0, 0, 0, .15);
 

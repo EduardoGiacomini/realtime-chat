@@ -5,6 +5,8 @@ import {setUser} from '../../commons/store/actions'
 import {joinChat, receiveClient} from '../../commons/server'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
+import hero from '../../commons/assets/hero.svg'
+import send from '../../commons/assets/send.png'
 
 class Subscriber extends Component {
     constructor(props) {
@@ -43,22 +45,31 @@ class Subscriber extends Component {
 
     render() {
         return (
-            <form className='subscriber' onSubmit={this.handleSubmit}>
+            <div className="subscriber">
                 <h3>Por favor, informe o seu nome para ingressar no bate-papo:</h3>
-                <Input
-                    id='name'
-                    name='name'
-                    value={this.state.name}
-                    placeholder='Nome de usuário'
-                    autoFocus={true}
-                    required={true}
-                    onChange={this.handleChange}
-                />
-                <Button
-                    type='submit'
-                    value='Iniciar'
-                />
-            </form>
+                <img
+                    className="subscriber--img"
+                    src={hero}
+                    alt="Um homem com um celular em mãos enviando mensagens de texto"
+                    title="Um homem com um celular em mãos enviando mensagens de texto"
+                />    
+                <form className='subscriber--form' onSubmit={this.handleSubmit}>
+                    <Input
+                        id='name'
+                        name='name'
+                        value={this.state.name}
+                        placeholder='Nome de usuário'
+                        autoFocus={true}
+                        required={true}
+                        onChange={this.handleChange}
+                    />
+                    <Button
+                        type='submit'
+                        icon={send}
+                        alt='Enviar'
+                    />
+                </form>
+            </div>
         )
     }
 }
