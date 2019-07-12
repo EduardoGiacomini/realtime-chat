@@ -1,6 +1,18 @@
-h3 {
+.title {
+    padding: .5rem;
     font-size: 2rem;
-    line-height: 1.2;
+    font-weight: 700;
     text-transform: uppercase;
     display: block;
+    text-align: center;
+    color: var(--color-primary);
+}
+
+.paragraph {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    display: block;
+    text-align: center;
+    color: var(--color-grey);
 }

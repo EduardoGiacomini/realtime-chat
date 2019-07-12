@@ -45,29 +45,34 @@ class Subscriber extends Component {
 
     render() {
         return (
-            <div className="subscriber">
-                <h3>Por favor, informe o seu nome para ingressar no bate-papo:</h3>
-                <img
-                    className="subscriber--img"
-                    src={hero}
-                    alt="Um homem com um celular em mãos enviando mensagens de texto"
-                    title="Um homem com um celular em mãos enviando mensagens de texto"
-                />    
-                <form className='subscriber--form' onSubmit={this.handleSubmit}>
-                    <Input
-                        id='name'
-                        name='name'
-                        value={this.state.name}
-                        placeholder='Nome de usuário'
-                        autoFocus={true}
-                        required={true}
-                        onChange={this.handleChange}
-                    />
-                    <Button
-                        type='submit'
-                        icon={faPlay}
-                    />
-                </form>
+            <div>
+                <div className='subscriber'>
+                    <h1 className='title'>Realtime Chat App</h1>
+                    <p className='paragraph'>Seja bem-vindo(a) à aplicação de bate-papo em tempo real. Por favor, para continuar 
+                        informe o seu nome para ingressar na sala de bate-papo:</p>
+                    <img
+                        className='subscriber--img'
+                        src={hero}
+                        alt='Um homem com um celular em mãos enviando mensagens de texto'
+                        title='Um homem com um celular em mãos enviando mensagens de texto'
+                    />    
+                    <form className='subscriber--form' onSubmit={this.handleSubmit}>
+                        <Input
+                            id='name'
+                            name='name'
+                            value={this.state.name}
+                            placeholder='Nome de usuário'
+                            autoFocus={true}
+                            required={true}
+                            onChange={this.handleChange}
+                        />
+                        <Button
+                            type='submit'
+                            icon={faPlay}
+                        />
+                    </form>
+                </div>
+                <div className="wave"></div>
             </div>
         )
     }

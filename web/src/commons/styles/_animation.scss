@@ -1,0 +1,19 @@
+@keyframes wave {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: 136rem;
+    }
+}
+
+@keyframes wave-reverse {
+    0% {
+        background-position: 136rem;
+    }
+
+    100% {
+        background-position: 0;
+    }
+}
