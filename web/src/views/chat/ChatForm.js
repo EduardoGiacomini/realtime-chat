@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {sendMessage} from '../../commons/server'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
-import send from '../../commons/assets/send.png'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 class ChatForm extends Component {
     constructor(props) {
@@ -46,8 +46,7 @@ class ChatForm extends Component {
                 />
                 <Button
                     type='submit'
-                    icon={send}
-                    alt='Enviar'
+                    icon={faPlay}
                 />
             </form>
         )

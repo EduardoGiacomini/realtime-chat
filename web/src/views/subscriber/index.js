@@ -6,7 +6,7 @@ import {joinChat, receiveClient} from '../../commons/server'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 import hero from '../../commons/assets/hero.svg'
-import send from '../../commons/assets/send.png'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 class Subscriber extends Component {
     constructor(props) {
@@ -65,8 +65,7 @@ class Subscriber extends Component {
                     />
                     <Button
                         type='submit'
-                        icon={send}
-                        alt='Enviar'
+                        icon={faPlay}
                     />
                 </form>
             </div>

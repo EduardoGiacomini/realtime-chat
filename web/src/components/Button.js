@@ -1,10 +1,11 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Button(props) {
-    const {type, icon, alt} = props
+    const {type, icon} = props
     return (
         <button className="btn" type={type}>
-            <img className="btn--icon" src={icon} alt={alt}/>
+            <FontAwesomeIcon className="btn--icon" icon={icon} />
         </button>
     )
 }
