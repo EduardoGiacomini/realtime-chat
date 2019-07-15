@@ -37,6 +37,8 @@
 }
 
 .chat-list {
+    overflow: auto;
+    height: calc(100vh - 9rem);
     padding: 1rem;
 
     &--item {
