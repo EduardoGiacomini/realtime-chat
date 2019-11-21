@@ -4,8 +4,10 @@ O Realtime Chat é um simples bate-papo em tempo real criado com NodeJS, Socket.
 ## Visão Geral:
 A aplicação possui um layout simples, amigável e de fácil navegação.
 
-![Screenshot from 2019-08-24 22-18-38](https://user-images.githubusercontent.com/31314944/63644749-c9e72c80-c6bd-11e9-9f05-5e33e92eff38.png)
-![Screenshot from 2019-08-24 22-21-21](https://user-images.githubusercontent.com/31314944/63644751-d9ff0c00-c6bd-11e9-9849-6aceb27f57c5.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/31314944/63644749-c9e72c80-c6bd-11e9-9f05-5e33e92eff38.png">
+  <img src="https://user-images.githubusercontent.com/31314944/63644751-d9ff0c00-c6bd-11e9-9849-6aceb27f57c5.png">
+</p>
 
 ## Como executar a aplicação
 
