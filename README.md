@@ -13,8 +13,7 @@ A aplicação possui um layout simples, amigável e de fácil navegação.
 
 ### Dependências:
 
-* NodeJS;
-* Módulo nodemon instalado.
+* NodeJS.
 
 1. Baixe ou clone o repositório em sua máquina;
 2. Navegue para a pasta do projeto: `cd realtime-chat`;
