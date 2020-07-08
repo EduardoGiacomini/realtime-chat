@@ -23,7 +23,3 @@ A aplicação possui um layout simples, amigável e de fácil navegação.
 6. Em outra aba do terminal. Navegue para a pasta do client (é necessário estar na raiz do projeto): `cd web`;
 7. Instale as dependências: `npm install`;
 8. Execute o APP: `npm run start`. Uma aba em seu navegador padrão será aberta no endereço: http://localhost:3000/.
-
-## Dúvidas e sugestões
-
-Caso você possua alguma dúvida ou sugestão, por favor, entre em contato comigo: **carloseduardo.diasgiacomini@gmail.com**.
